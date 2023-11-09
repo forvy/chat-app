@@ -1,0 +1,32 @@
+version: '2'
+services:
+  db:
+    container_name: mongo
+    restart: unless-stopped
+    image: mongo
+    volumes:
+      - ./data:/data/db
+    ports:
+      - '27017:27017'
+  node:
+    container_name: node
+    restart: unless-stopped
+    env_file: ./.env
+    build:
+      dockerfile: Dockerfile
+      context: "./server"
+    ports:
+      - "3001:3001"
+    depends_on:
+      - db
+  client:
+    container_name: client
+    env_file: ./.env
+    restart: unless-stopped
+    build:
+      dockerfile: Dockerfile
+      context: ./client
+    ports:
+      - "3000:3000"
+    depends_on:
+      - node

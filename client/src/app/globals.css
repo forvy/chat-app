@@ -1,0 +1,42 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+}
+
+h1 {
+  font-size: 30px;
+  font-weight: 600;
+}
+
+input {
+  width: 98%;
+  height: 50px;
+  flex-shrink: 0;
+  background-color: #F6F6F6;
+  border-radius: 30px;
+  border: 1px solid #E8E8E8;
+  padding: 16px;
+}
